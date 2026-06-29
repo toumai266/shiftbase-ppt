@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/assets/artifact-base.css" />
+  <style>
+    body { background: #f8fafc; }
+
+    .scene {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 28px 20px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* --- test subject --- */
+    .subject {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+    .subject-emoji { font-size: 44px; line-height: 1; }
+    .subject-info { flex: 1; min-width: 0; }
+    .subject-name { margin: 0; font-size: 16px; font-weight: 700; color: var(--ink); }
+    .subject-props {
+      margin: 6px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .prop-chip {
+      display: inline-block;
+      padding: 2px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: var(--muted);
+    }
+
+    /* --- pick buttons --- */
+    .pick-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .pick-btn {
+      font: inherit;
+      cursor: pointer;
+      border: 1.5px solid var(--line);
+      background: #fff;
+      border-radius: 10px;
+      padding: 12px 8px;
+      text-align: center;
+      transition: all 0.15s;
+    }
+    .pick-btn:hover { border-color: var(--primary); }
+    .pick-btn.active {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+    .pick-emoji { font-size: 28px; display: block; margin-bottom: 4px; }
+    .pick-label { font-size: 12px; font-weight: 600; color: var(--ink); }
+    .pick-sub { font-size: 11px; color: var(--muted); display: block; margin-top: 2px; }
+
+    /* --- engine panels --- */
+    .engines {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .engine {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .engine-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .engine-tag.rule { background: #fef3c7; color: #92400e; }
+    .engine-tag.learn { background: #ede9fe; color: #5b21b6; }
+
+    .engine-verdict {
+      font-size: 22px;
+      font-weight: 800;
+      margin: 0;
+    }
+    .engine-verdict.correct { color: var(--success); }
+    .engine-verdict.wrong { color: var(--danger); }
+
+    .engine-reason {
+      font-size: 12px;
+      line-height: 1.55;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .rule-checks {
+      list-style: none;
+      margin: 4px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 4px;
+    }
+    .rule-checks li {
+      font-size: 12px;
+      font-family: ui-monospace, monospace;
+      padding: 5px 8px;
+      border-radius: 6px;
+      background: #f8fafc;
+    }
+    .rule-checks li.pass { background: #ecfdf5; color: #065f46; }
+    .rule-checks li.fail { background: #fef2f2; color: #991b1b; }
+
+    .example-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      padding: 4px 0;
+    }
+    .example-row .ex-emoji { font-size: 18px; }
+    .example-row .ex-dist {
+      margin-left: auto;
+      font-weight: 700;
+      font-size: 11px;
+      font-family: ui-monospace, monospace;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: #f1f5f9;
+    }
+    .example-row.nearest .ex-dist {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    /* --- insight --- */
+    .insight {
+      padding: 14px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      line-height: 1.6;
+      font-weight: 600;
+      display: none;
+    }
+    .insight.visible { display: block; }
+    .insight.match {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+    .insight.differ {
+      background: #faf5ff;
+      color: #6b21a8;
+      border: 1px solid #d8b4fe;
+    }
+
+    @media (max-width: 480px) {
+      .engines { grid-template-columns: 1fr; }
+      .pick-row { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div class="pick-row" id="picks"></div>
+    <div class="subject" id="subject"></div>
+    <div class="engines">
+      <div class="engine" id="ruleEngine"></div>
+      <div class="engine" id="learnEngine"></div>
+    </div>
+    <div class="insight" id="insight"></div>
+  </div>
+
+  <script>
+    const fruits = [
+      {
+        id: "clear-apple",
+        emoji: "🍎",
+        name: "빨간 사과",
+        answer: "사과",
+        pickLabel: "빨간 사과",
+        pickSub: "분명한 경우",
+        props: { color: "빨강", shape: "둥글다", size: "중간" },
+        redness: 85
+      },
+      {
+        id: "green-apple",
+        emoji: "🍏",
+        name: "초록 사과",
+        answer: "사과",
+        pickLabel: "초록 사과",
+        pickSub: "규칙이 흔들림",
+        props: { color: "초록", shape: "둥글다", size: "중간" },
+        redness: 25
+      },
+      {
+        id: "cherry",
+        emoji: "🍒",
+        name: "체리",
+        answer: "체리",
+        pickLabel: "체리",
+        pickSub: "작고 빨간 함정",
+        props: { color: "빨강", shape: "둥글다", size: "아주 작다" },
+        redness: 90
+      }
+    ];
+
+    const examples = [
+      { emoji: "🍎", label: "사과", x: 85, y: 78 },
+      { emoji: "🍎", label: "사과", x: 72, y: 80 },
+      { emoji: "🍇", label: "포도", x: 30, y: 25 },
+      { emoji: "🍇", label: "포도", x: 22, y: 30 },
+      { emoji: "🍒", label: "체리", x: 88, y: 18 },
+      { emoji: "🍌", label: "바나나", x: 15, y: 62 }
+    ];
+
+    const fruitCoords = {
+      "clear-apple": { x: 82, y: 76 },
+      "green-apple": { x: 26, y: 75 },
+      cherry: { x: 90, y: 20 }
+    };
+
+    function dist(a, b) {
+      return Math.hypot(a.x - b.x, a.y - b.y);
+    }
+
+    function ruleCheck(fruit) {
+      const checks = [];
+      const redOk = fruit.redness >= 60;
+      checks.push({
+        text: `빨간 정도 ${fruit.redness} ${redOk ? "≥" : "<"} 60`,
+        pass: redOk
+      });
+      const roundOk = fruit.props.shape === "둥글다";
+      checks.push({
+        text: `둥근가? → ${roundOk ? "예" : "아니오"}`,
+        pass: roundOk
+      });
+      const verdict = redOk && roundOk ? "사과" : "사과 아님";
+      return { checks, verdict };
+    }
+
+    function learnCheck(fruit) {
+      const c = fruitCoords[fruit.id];
+      const ranked = examples
+        .map((ex) => ({ ...ex, d: dist(c, { x: ex.x, y: ex.y }) }))
+        .sort((a, b) => a.d - b.d);
+      const nearest = ranked[0];
+      return { ranked: ranked.slice(0, 4), verdict: nearest.label, nearest };
+    }
+
+    let current = fruits[0];
+
+    function render() {
+      const picksEl = document.getElementById("picks");
+      picksEl.innerHTML = fruits
+        .map(
+          (f) => `
+        <button class="pick-btn ${f.id === current.id ? "active" : ""}" data-id="${f.id}">
+          <span class="pick-emoji">${f.emoji}</span>
+          <span class="pick-label">${f.pickLabel}</span>
+          <span class="pick-sub">${f.pickSub}</span>
+        </button>`
+        )
+        .join("");
+
+      picksEl.querySelectorAll(".pick-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          current = fruits.find((f) => f.id === btn.dataset.id);
+          render();
+        });
+      });
+
+      document.getElementById("subject").innerHTML = `
+        <span class="subject-emoji">${current.emoji}</span>
+        <div class="subject-info">
+          <p class="subject-name">${current.name}</p>
+          <div class="subject-props">
+            ${Object.entries(current.props)
+              .map(([k, v]) => `<span class="prop-chip">${k}: ${v}</span>`)
+              .join("")}
+          </div>
+        </div>
+      `;
+
+      const rule = ruleCheck(current);
+      const ruleCorrect = rule.verdict === current.answer;
+      document.getElementById("ruleEngine").innerHTML = `
+        <span class="engine-tag rule">규칙 방식</span>
+        <ul class="rule-checks">
+          ${rule.checks.map((c) => `<li class="${c.pass ? "pass" : "fail"}">${c.pass ? "✓" : "✗"} ${c.text}</li>`).join("")}
+        </ul>
+        <p class="engine-verdict ${ruleCorrect ? "correct" : "wrong"}">${rule.verdict}</p>
+        <p class="engine-reason">${ruleCorrect ? "규칙에 맞아서 정답" : "규칙만으로는 이 경우를 놓칩니다"}</p>
+      `;
+
+      const learn = learnCheck(current);
+      const learnCorrect = learn.verdict === current.answer;
+      document.getElementById("learnEngine").innerHTML = `
+        <span class="engine-tag learn">학습 방식</span>
+        ${learn.ranked
+          .map(
+            (ex, i) => `
+          <div class="example-row ${i === 0 ? "nearest" : ""}">
+            <span class="ex-emoji">${ex.emoji}</span>
+            <span>${ex.label}</span>
+            <span class="ex-dist">${ex.d.toFixed(1)}</span>
+          </div>`
+          )
+          .join("")}
+        <p class="engine-verdict ${learnCorrect ? "correct" : "wrong"}">${learn.verdict}</p>
+        <p class="engine-reason">가장 가까운 예시(${learn.nearest.emoji})를 따름</p>
+      `;
+
+      const insight = document.getElementById("insight");
+      if (ruleCorrect && learnCorrect) {
+        insight.className = "insight visible match";
+        insight.textContent = "이 경우는 둘 다 맞춥니다. 분명한 입력에서는 규칙도 잘 동작해요.";
+      } else if (!ruleCorrect && learnCorrect) {
+        insight.className = "insight visible differ";
+        insight.textContent = `규칙은 "${rule.verdict}"라고 했지만, 학습은 비슷한 예시를 찾아서 "${learn.verdict}"로 맞췄습니다. 규칙이 다루지 못하는 예외를 학습이 잡아내는 순간입니다.`;
+      } else if (ruleCorrect && !learnCorrect) {
+        insight.className = "insight visible differ";
+        insight.textContent = `흥미롭게도 규칙이 맞고 학습이 틀렸습니다. 예시가 부족하면 학습도 실수합니다.`;
+      } else {
+        insight.className = "insight visible differ";
+        insight.textContent = "둘 다 틀렸습니다. 규칙은 조건이 부족하고, 학습은 예시가 부족할 때 생기는 일입니다.";
+      }
+    }
+
+    render();
+  </script>
+</body>
+</html>

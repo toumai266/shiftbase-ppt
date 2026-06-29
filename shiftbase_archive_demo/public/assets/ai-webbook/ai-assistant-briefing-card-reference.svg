@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">AI 비서 아침 브리핑 카드 예시</title>
+  <desc id="desc">Gmail과 Calendar를 요약해 Telegram 또는 Discord로 보내는 안전한 아침 브리핑 카드</desc>
+  <rect width="1200" height="680" rx="34" fill="#f8fafc"/>
+  <text x="72" y="86" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#2563eb">MORNING BRIEFING</text>
+  <text x="72" y="128" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="#0f172a">원문 대신 5줄 보고 카드로 보낸다</text>
+
+  <rect x="96" y="190" width="420" height="408" rx="28" fill="#0f172a"/>
+  <text x="132" y="244" font-family="Arial, sans-serif" font-size="22" font-weight="900" fill="#ffffff">오늘 브리핑</text>
+  <text x="132" y="280" font-family="Arial, sans-serif" font-size="14" fill="#93c5fd">Telegram / Discord message</text>
+  <g font-family="Arial, sans-serif" font-size="17" fill="#ffffff">
+    <text x="132" y="338">1. 먼저 볼 일: 10시 리뷰 전 금액표 확인</text>
+    <text x="132" y="386">2. 일정 압박: 10시 리뷰, 15시 고객 통화</text>
+    <text x="132" y="434">3. 답장 필요: 견적 조건 확인 요청 1건</text>
+    <text x="132" y="482">4. 확인 필요: 최신 파일명과 납기 조건</text>
+    <text x="132" y="530">5. 제외: 회의 링크, 첨부 원문, 연락처</text>
+  </g>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="604" y="208" width="404" height="86" rx="18" fill="#ffffff" stroke="#dbe3ef"/>
+    <text x="632" y="242" font-size="17" font-weight="900" fill="#0f172a">입력 1. Gmail</text>
+    <text x="632" y="270" font-size="15" fill="#475569">읽지 않은 메일 후보, 제목, 발신자, 일부 본문</text>
+
+    <rect x="604" y="328" width="404" height="86" rx="18" fill="#ffffff" stroke="#dbe3ef"/>
+    <text x="632" y="362" font-size="17" font-weight="900" fill="#0f172a">입력 2. Calendar</text>
+    <text x="632" y="390" font-size="15" fill="#475569">오늘·내일 일정, 시간, 참석 여부</text>
+
+    <rect x="604" y="448" width="404" height="86" rx="18" fill="#fef2f2" stroke="#fecaca"/>
+    <text x="632" y="482" font-size="17" font-weight="900" fill="#991b1b">제외</text>
+    <text x="632" y="510" font-size="15" fill="#475569">원문, 첨부, 회의 링크, 고객 연락처</text>
+  </g>
+
+  <g stroke="#94a3b8" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M604 252c-42 0-70 22-86 58"/>
+    <path d="M604 372c-58 0-84 24-92 72"/>
+  </g>
+  <text x="604" y="592" font-family="Arial, sans-serif" font-size="16" font-weight="900" fill="#0f172a">좋은 비서는 많이 보내지 않는다. 오늘 행동을 정할 만큼만 보낸다.</text>
+</svg>

@@ -1,0 +1,13 @@
+node_modules
+.next
+.playwright-mcp
+.env
+.env.local
+.env.*.local
+content/.backups/
+.shiftbase/
+/artifacts/
+*.tsbuildinfo
+.devserver*.log
+.next-dev*.log
+.oauthproxy*.log

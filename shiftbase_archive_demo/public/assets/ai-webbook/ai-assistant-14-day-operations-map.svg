@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">AI 비서 첫 14일 운영 지도</title>
+  <desc id="desc">AI 비서를 14일 동안 안전하게 운영하고 확장하는 단계</desc>
+  <rect width="1200" height="680" rx="34" fill="#f8fafc"/>
+  <rect x="54" y="48" width="1092" height="584" rx="28" fill="#ffffff" stroke="#dbe3ef"/>
+  <text x="86" y="98" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#2563eb">14 DAY OPERATING MAP</text>
+  <text x="86" y="140" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="#0f172a">연결보다 운영이 먼저다</text>
+  <text x="86" y="176" font-family="Arial, sans-serif" font-size="16" fill="#475569">첫 14일은 권한을 늘리는 기간이 아니라 쓸모와 안전선을 검증하는 기간이다.</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="86" y="240" width="244" height="218" rx="22" fill="#eff6ff" stroke="#93c5fd"/>
+    <text x="116" y="284" font-size="20" font-weight="900" fill="#1e3a8a">1~3일차</text>
+    <text x="116" y="326" font-size="16" fill="#334155">Telegram 또는 Discord</text>
+    <text x="116" y="358" font-size="16" fill="#334155">첫 응답 확인</text>
+    <text x="116" y="390" font-size="16" fill="#334155">pairing / allowlist</text>
+    <text x="116" y="422" font-size="16" fill="#334155">샘플 브리핑만 사용</text>
+
+    <rect x="394" y="240" width="244" height="218" rx="22" fill="#f0fdf4" stroke="#86efac"/>
+    <text x="424" y="284" font-size="20" font-weight="900" fill="#166534">4~7일차</text>
+    <text x="424" y="326" font-size="16" fill="#334155">Gmail 읽기 전용</text>
+    <text x="424" y="358" font-size="16" fill="#334155">Calendar 일정 조회</text>
+    <text x="424" y="390" font-size="16" fill="#334155">아침 보고 카드</text>
+    <text x="424" y="422" font-size="16" fill="#334155">원문 외부 전송 금지</text>
+
+    <rect x="702" y="240" width="244" height="218" rx="22" fill="#fff7ed" stroke="#fed7aa"/>
+    <text x="732" y="284" font-size="20" font-weight="900" fill="#9a3412">8~14일차</text>
+    <text x="732" y="326" font-size="16" fill="#334155">메모와 할 일 확장</text>
+    <text x="732" y="358" font-size="16" fill="#334155">퇴근 정리</text>
+    <text x="732" y="390" font-size="16" fill="#334155">주간 회고</text>
+    <text x="732" y="422" font-size="16" fill="#334155">유지·삭제·권한 축소</text>
+  </g>
+
+  <g stroke="#94a3b8" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M332 350h60"/>
+    <path d="M640 350h60"/>
+  </g>
+  <g fill="#94a3b8">
+    <path d="M388 342l12 8-12 8z"/>
+    <path d="M696 342l12 8-12 8z"/>
+  </g>
+
+  <rect x="86" y="520" width="992" height="58" rx="18" fill="#0f172a"/>
+  <text x="118" y="556" font-family="Arial, sans-serif" font-size="17" font-weight="900" fill="#ffffff">14일차 결정</text>
+  <text x="238" y="556" font-family="Arial, sans-serif" font-size="16" fill="#dbeafe">유지할 명령, 삭제할 알림, 줄일 권한, 다음에 붙일 도구를 정한다.</text>
+</svg>

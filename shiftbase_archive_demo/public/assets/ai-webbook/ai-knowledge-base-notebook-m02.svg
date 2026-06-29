@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">AI 지식베이스와 노트북형 리서치 운영하기 질문 설계 웹북 비주얼</title>
+  <desc id="desc">공개 AI 활용법을 한국 업무 산출물로 바꾸는 고품질 SVG 인포그래픽</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dbeafe"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="22" stdDeviation="20" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="960" height="520" rx="32" fill="#f8fafc"/>
+  <rect x="36" y="34" width="888" height="452" rx="28" fill="url(#paper)" filter="url(#shadow)"/>
+  <text x="72" y="86" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="18" font-weight="900" letter-spacing="1.8" fill="#1d4ed8">SHIFTBASE AI WEBBOOK</text>
+  <text x="72" y="128" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="34" font-weight="850" fill="#0f172a">질문 설계</text>
+  <foreignObject x="72" y="150" width="660" height="58">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="font: 15px/1.55 system-ui, -apple-system, Segoe UI, sans-serif; color:#475569;">사내 문서와 공개 자료가 흩어져 같은 질문에 매번 다른 답을 찾는 상황</div>
+  </foreignObject>
+  <g transform="translate(72 238)">
+    <g>
+        <rect x="0" y="0" width="170" height="132" rx="18" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+        <circle cx="28" cy="30" r="15" fill="#1d4ed8"/>
+        <text x="28" y="35" text-anchor="middle" font-size="15" font-weight="900" fill="#ffffff">1</text>
+        <text x="24" y="70" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="20" font-weight="850" fill="#0f172a">공개 자료</text>
+        <foreignObject x="24" y="84" width="120" height="34">
+          <div xmlns="http://www.w3.org/1999/xhtml" style="font: 12px/1.4 system-ui, -apple-system, Segoe UI, sans-serif; color:#64748b;">사내 문서, 공식 링크, 교육 영상 요약, 자주 묻는 질문, 폐기할 문서</div>
+        </foreignObject>
+      </g><g>
+        <rect x="208" y="0" width="170" height="132" rx="18" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+        <circle cx="236" cy="30" r="15" fill="#0f172a"/>
+        <text x="236" y="35" text-anchor="middle" font-size="15" font-weight="900" fill="#ffffff">2</text>
+        <text x="232" y="70" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="20" font-weight="850" fill="#0f172a">업무 번역</text>
+        <foreignObject x="232" y="84" width="120" height="34">
+          <div xmlns="http://www.w3.org/1999/xhtml" style="font: 12px/1.4 system-ui, -apple-system, Segoe UI, sans-serif; color:#64748b;">지식베이스는 많이 넣는 것보다 최신 자료, 공식 자료, 실제 쓰는 질문을 ...</div>
+        </foreignObject>
+      </g><g>
+        <rect x="416" y="0" width="170" height="132" rx="18" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+        <circle cx="444" cy="30" r="15" fill="#1d4ed8"/>
+        <text x="444" y="35" text-anchor="middle" font-size="15" font-weight="900" fill="#ffffff">3</text>
+        <text x="440" y="70" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="20" font-weight="850" fill="#0f172a">AI 요청</text>
+        <foreignObject x="440" y="84" width="120" height="34">
+          <div xmlns="http://www.w3.org/1999/xhtml" style="font: 12px/1.4 system-ui, -apple-system, Segoe UI, sans-serif; color:#64748b;">목표, 맥락, 형식</div>
+        </foreignObject>
+      </g><g>
+        <rect x="624" y="0" width="170" height="132" rx="18" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+        <circle cx="652" cy="30" r="15" fill="#0f172a"/>
+        <text x="652" y="35" text-anchor="middle" font-size="15" font-weight="900" fill="#ffffff">4</text>
+        <text x="648" y="70" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="20" font-weight="850" fill="#0f172a">사람 검토</text>
+        <foreignObject x="648" y="84" width="120" height="34">
+          <div xmlns="http://www.w3.org/1999/xhtml" style="font: 12px/1.4 system-ui, -apple-system, Segoe UI, sans-serif; color:#64748b;">승인선과 책임</div>
+        </foreignObject>
+      </g>
+  </g>
+  <rect x="72" y="408" width="816" height="44" rx="16" fill="#ffffff" stroke="#dbe3ef"/>
+  <text x="98" y="436" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="16" font-weight="850" fill="#0f172a">완성 산출물</text>
+  <text x="224" y="436" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="16" font-weight="750" fill="#1d4ed8">질문 세트</text>
+</svg>

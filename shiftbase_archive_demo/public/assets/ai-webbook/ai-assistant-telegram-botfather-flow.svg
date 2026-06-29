@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Telegram BotFather 연결 흐름</title>
+  <desc id="desc">BotFather에서 봇을 만들고 토큰을 gateway에 연결하는 흐름</desc>
+  <rect width="1200" height="680" rx="34" fill="#f8fafc"/>
+  <rect x="54" y="44" width="1092" height="592" rx="28" fill="#ffffff" stroke="#dbe3ef"/>
+  <text x="86" y="96" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#0ea5e9">TELEGRAM SETUP</text>
+  <text x="86" y="138" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="#0f172a">BotFather에서 첫 AI 비서 채널 만들기</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="86" y="214" width="190" height="250" rx="22" fill="#eff6ff" stroke="#93c5fd"/>
+    <text x="118" y="262" font-size="21" font-weight="900" fill="#1e3a8a">1. @BotFather</text>
+    <text x="118" y="304" font-size="15" fill="#334155">Telegram에서 열기</text>
+    <text x="118" y="334" font-size="15" fill="#334155">/newbot 입력</text>
+    <text x="118" y="364" font-size="15" fill="#334155">이름과 username 생성</text>
+
+    <rect x="328" y="214" width="190" height="250" rx="22" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="360" y="262" font-size="21" font-weight="900" fill="#0f172a">2. Token</text>
+    <text x="360" y="304" font-size="15" fill="#334155">발급된 token 복사</text>
+    <text x="360" y="334" font-size="15" fill="#334155">문서/채팅에 남기지 않기</text>
+    <text x="360" y="364" font-size="15" fill="#334155">노출 시 재발급</text>
+
+    <rect x="570" y="214" width="190" height="250" rx="22" fill="#f0fdf4" stroke="#86efac"/>
+    <text x="602" y="262" font-size="21" font-weight="900" fill="#166534">3. Gateway</text>
+    <text x="602" y="304" font-size="15" fill="#334155">Hermes gateway setup</text>
+    <text x="602" y="334" font-size="15" fill="#334155">OpenClaw botToken</text>
+    <text x="602" y="364" font-size="15" fill="#334155">TELEGRAM_BOT_TOKEN</text>
+
+    <rect x="812" y="214" width="230" height="250" rx="22" fill="#fff7ed" stroke="#fed7aa"/>
+    <text x="844" y="262" font-size="21" font-weight="900" fill="#9a3412">4. 승인</text>
+    <text x="844" y="304" font-size="15" fill="#334155">DM으로 첫 메시지</text>
+    <text x="844" y="334" font-size="15" fill="#334155">pairing code 승인</text>
+    <text x="844" y="364" font-size="15" fill="#334155">allowlist 확인</text>
+    <text x="844" y="394" font-size="15" fill="#334155">샘플 브리핑 테스트</text>
+  </g>
+
+  <g stroke="#94a3b8" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M278 338h48"/>
+    <path d="M520 338h48"/>
+    <path d="M762 338h48"/>
+  </g>
+  <g fill="#94a3b8">
+    <path d="M322 330l12 8-12 8z"/>
+    <path d="M564 330l12 8-12 8z"/>
+    <path d="M806 330l12 8-12 8z"/>
+  </g>
+
+  <rect x="86" y="518" width="956" height="54" rx="18" fill="#0f172a"/>
+  <text x="118" y="552" font-family="Arial, sans-serif" font-size="17" font-weight="900" fill="#ffffff">첫 테스트 문장</text>
+  <text x="252" y="552" font-family="Arial, sans-serif" font-size="16" fill="#dbeafe">오늘 브리핑 형식만 보여줘. 실제 메일과 일정은 읽지 마.</text>
+</svg>

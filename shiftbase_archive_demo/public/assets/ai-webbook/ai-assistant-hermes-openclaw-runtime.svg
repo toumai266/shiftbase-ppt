@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Hermes와 OpenClaw 런타임 준비 흐름</title>
+  <desc id="desc">Hermes와 OpenClaw를 AI 비서 런타임으로 준비할 때 확인할 항목</desc>
+  <rect width="1200" height="680" rx="34" fill="#f8fafc"/>
+  <text x="72" y="86" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#2563eb">RUNTIME PREP</text>
+  <text x="72" y="128" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="#0f172a">Hermes와 OpenClaw를 같은 기준으로 본다</text>
+  <text x="72" y="166" font-family="Arial, sans-serif" font-size="16" fill="#475569">도구 이름보다 중요한 것은 runtime, gateway, channel, 권한 경계가 분리되어 있는지다.</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="72" y="226" width="500" height="330" rx="28" fill="#ffffff" stroke="#dbe3ef"/>
+    <text x="104" y="276" font-size="26" font-weight="900" fill="#0f172a">Hermes</text>
+    <text x="104" y="316" font-size="16" font-weight="700" fill="#2563eb">흐름</text>
+    <text x="104" y="352" font-size="16" fill="#334155">1. hermes setup</text>
+    <text x="104" y="388" font-size="16" fill="#334155">2. model/provider 확인</text>
+    <text x="104" y="424" font-size="16" fill="#334155">3. hermes gateway setup</text>
+    <text x="104" y="460" font-size="16" fill="#334155">4. Telegram 또는 Discord 선택</text>
+    <text x="104" y="496" font-size="16" fill="#334155">5. hermes gateway start</text>
+    <rect x="338" y="308" width="132" height="152" rx="18" fill="#eff6ff" stroke="#93c5fd"/>
+    <text x="362" y="352" font-size="16" font-weight="900" fill="#1e3a8a">핵심 점검</text>
+    <text x="362" y="386" font-size="14" fill="#334155">로컬 응답</text>
+    <text x="362" y="414" font-size="14" fill="#334155">gateway 실행</text>
+    <text x="362" y="442" font-size="14" fill="#334155">허용 사용자</text>
+
+    <rect x="628" y="226" width="500" height="330" rx="28" fill="#ffffff" stroke="#dbe3ef"/>
+    <text x="660" y="276" font-size="26" font-weight="900" fill="#0f172a">OpenClaw</text>
+    <text x="660" y="316" font-size="16" font-weight="700" fill="#16a34a">흐름</text>
+    <text x="660" y="352" font-size="16" fill="#334155">1. Node 24 또는 22.19 이상</text>
+    <text x="660" y="388" font-size="16" fill="#334155">2. npm install -g openclaw@latest</text>
+    <text x="660" y="424" font-size="16" fill="#334155">3. openclaw onboard --install-daemon</text>
+    <text x="660" y="460" font-size="16" fill="#334155">4. channel token 설정</text>
+    <text x="660" y="496" font-size="16" fill="#334155">5. openclaw gateway status / doctor</text>
+    <rect x="932" y="308" width="132" height="152" rx="18" fill="#f0fdf4" stroke="#86efac"/>
+    <text x="956" y="352" font-size="16" font-weight="900" fill="#166534">핵심 점검</text>
+    <text x="956" y="386" font-size="14" fill="#334155">daemon</text>
+    <text x="956" y="414" font-size="14" fill="#334155">pairing</text>
+    <text x="956" y="442" font-size="14" fill="#334155">allowlist</text>
+  </g>
+
+  <rect x="72" y="590" width="1056" height="44" rx="16" fill="#fff7ed" stroke="#fed7aa"/>
+  <text x="102" y="618" font-family="Arial, sans-serif" font-size="16" font-weight="800" fill="#9a3412">운영 원칙</text>
+  <text x="210" y="618" font-family="Arial, sans-serif" font-size="16" fill="#334155">처음에는 Telegram과 Discord를 동시에 붙이지 않는다. 한 채널에서 원인 추적이 되는 상태를 먼저 만든다.</text>
+</svg>
